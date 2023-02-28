@@ -61,4 +61,19 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in end
 
 
+    # Send RCPT TO command and handle server response.
+    # Fill in start
    
+    # receiver = input("Send email to: ")
+    receiver = 'cubicmaara@gmail.com'
+
+    toCommand = 'RCPT TO: <'+ receiver +'>\r\n'
+
+    # print (toCommand)
+
+    clientSocket.sendall(toCommand.encode())
+
+    recv3 = clientSocket.recv(1024).decode()
+
+    # print (recv3)
+
