@@ -104,8 +104,9 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     Subject = 'Bread'
     Text = 'It is bad for you.'
     
-    Message = 'Subject:' + Subject + '\r\n\r\n' + Text
-    clientSocket.sendall(Message.encode())
+    message = 'Subject:' + Subject + '\r\n\r\n' + Text
+    clientSocket.sendall(message.encode())
+    clientSocket.sendall(endmsg.encode())
     
     recv5 = clientSocket.recv(1024).decode()
     # print (recv5)
