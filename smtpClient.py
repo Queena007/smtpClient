@@ -98,11 +98,15 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send message data.
     # Fill in start
     
-    # subject = 'Subject: Bread \r\n\r\n'
-    clientSocket.sendall(subject.encode())
-    # message = raw_input('It's bad for you. \r\n')
-    clientSocket.sendall(message.encode())
-    clientSocket.sendall(endmsg.encode())
+    # Subject = input('Subject:')
+    # Text = input('Message:')
+    
+    Subject = 'Bread'
+    Text = 'It is bad for you.'
+    
+    Message = 'Subject:' + Subject + '\r\n\r\n' + Text
+    clientSocket.sendall(Message.encode())
+    
     recv5 = clientSocket.recv(1024).decode()
     # print (recv5)
     # if recv1[:3] != '250':
